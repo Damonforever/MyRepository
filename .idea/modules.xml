@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaWorkSpace.iml" filepath="$PROJECT_DIR$/JavaWorkSpace.iml" />
-      <module fileurl="file://$PROJECT_DIR$/miashi/miashi.iml" filepath="$PROJECT_DIR$/miashi/miashi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mianshi/mianshi.iml" filepath="$PROJECT_DIR$/mianshi/mianshi.iml" />
     </modules>
   </component>
 </project>
