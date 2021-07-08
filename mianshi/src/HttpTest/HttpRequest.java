@@ -131,7 +131,9 @@ public class HttpRequest {
 
     public static void main(String[] args) {
         String sscKey = "";
-        String url = "https://sctapi.ftqq.com/" + sscKey + ".send";
+        //String url = "https://pushplus.hxtrip.com/send";
+        String url = "https://sctapi.ftqq.com/"+sscKey +".send";
+//        String param = "token=&content=Server over!&template=json";
         String param = "title=Server over!";
         sendPost(url,param);
     }
