@@ -1,7 +1,7 @@
 package dpCode;
 
 /**
- * @description:
+ * @description: 乘积最大子数组，墙裂推荐最大最小值交换
  * @author: Damon
  * @date 2021/7/9 14:55
  */
@@ -28,6 +28,18 @@ public class Solution_maxProduct {
                 min = Math.min(dp[i - 1] * nums[i],min * nums[i]);
 
             }
+        }
+        return max;
+    }
+    //交换最大和最小值的方法就很妙啊
+    public int maxProduct2(int[] nums) {
+        int max = Integer.MIN_VALUE, imax = 1, imin = 1; //一个保存最大的，一个保存最小的。
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] < 0){ int tmp = imax; imax = imin; imin = tmp;} //如果数组的数是负数，那么会导致最大的变最小的，最小的变最大的。因此交换两个的值。
+            imax = Math.max(imax*nums[i], nums[i]);
+            imin = Math.min(imin*nums[i], nums[i]);
+
+            max = Math.max(max, imax);
         }
         return max;
     }
