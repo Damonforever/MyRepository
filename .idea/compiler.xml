@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="use" />
         <module name="usetool" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="use" target="1.8" />
       <module name="usetool" target="1.8" />
     </bytecodeTargetLevel>
   </component>
