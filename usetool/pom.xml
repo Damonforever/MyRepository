@@ -25,6 +25,14 @@
             <artifactId>hutool-all</artifactId>
             <version>5.7.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!--dependency>
             <groupId>net.sf.json-lib</groupId>
             <artifactId>json-lib</artifactId>

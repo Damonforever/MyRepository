@@ -2,6 +2,9 @@ package com.hutool.use.service.impl;
 
 
 import com.hutool.use.service.HttpPostService;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +14,10 @@ import java.util.Map;
  * @author: Damon
  * @date 2021/7/7 9:30
  */
+@Service
+@Slf4j
 public class HttpPostServiceImpl implements HttpPostService {
+
 
     @Override
     public void sendPost(){
