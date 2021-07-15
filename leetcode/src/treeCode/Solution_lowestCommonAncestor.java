@@ -24,25 +24,32 @@ public class Solution_lowestCommonAncestor {
         lowestCommonAncestor(root,root1,root8);
     }
     static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        Stack<TreeNode> path_p = new Stack<>();
-        Stack<TreeNode> path_q = new Stack<>();
-        int finish = 0;
-        preorder(root,p,path_p,finish);
-        finish = 0;
-        preorder(root,q,path_q,finish);
-        int len = 0;
-        if(path_p.size() < path_q.size()){
-            len = path_p.size();
-        }else {
-            len = path_q.size();
-        }
-        TreeNode result = new TreeNode(0);
-        for (int i = 0; i < len; i++) {
-            if (path_p.get(i).val == path_q.get(i).val){
-                result = path_p.get(i);
-            }
-        }
-        return result;
+        if (root == null) return null;
+        if (root == p || root == q) return root;
+        TreeNode left = lowestCommonAncestor(root.left,p,q);
+        TreeNode right = lowestCommonAncestor(root.right,p,q);
+        if (left == null && right == null) return null;
+        if (left != null && right != null) return root;
+        return left == null ? right : left;
+//        Stack<TreeNode> path_p = new Stack<>();
+//        Stack<TreeNode> path_q = new Stack<>();
+//        int finish = 0;
+//        preorder(root,p,path_p,finish);
+//        finish = 0;
+//        preorder(root,q,path_q,finish);
+//        int len = 0;
+//        if(path_p.size() < path_q.size()){
+//            len = path_p.size();
+//        }else {
+//            len = path_q.size();
+//        }
+//        TreeNode result = new TreeNode(0);
+//        for (int i = 0; i < len; i++) {
+//            if (path_p.get(i).val == path_q.get(i).val){
+//                result = path_p.get(i);
+//            }
+//        }
+//        return result;
     }
     static int preorder(TreeNode node, TreeNode search, Stack<TreeNode> path, int finish){
         if(node == null || finish==1){
