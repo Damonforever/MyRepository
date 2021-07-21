@@ -34,6 +34,32 @@ public class Solution_getIntersectionNode {
             B=null;
         }
         return B;
+    }
+    public ListNode1 getIntersectionNode1(ListNode1 headA, ListNode1 headB) {
+        if (headA == null || headB == null) return null;
+        ListNode1 headOne = headA;
+        ListNode1 headTwo = headB;
+        while (headTwo != null && headOne != null){
+            headOne = headOne.next;
+            headTwo = headTwo.next;
+            if(headOne == headTwo) return headOne;
+        }
+        if (headTwo == null && headOne != null){
+            headTwo = headA;
+            while (headOne != null){
+                headOne = headOne.next;
+                headTwo = headTwo.next;
+            }
+            headOne = headB;
+            while (headTwo != null && headOne != null){
+                headOne = headOne.next;
+                headTwo = headTwo.next;
+                if(headOne == headTwo) return headOne;
+            }
 
+        } else if (headOne == null && headTwo != null){
+            headOne = headB;
+        }
+        return null;
     }
 }
