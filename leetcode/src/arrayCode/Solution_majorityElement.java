@@ -10,32 +10,21 @@ public class Solution_majorityElement {
         System.out.println(majorityElement(nums));
     }
     static int majorityElement(int[] nums) {
-//        Map<Integer,Integer> map = new HashMap<>();
-//        int count = 0;
-//        int value = 0;
-//        int ch = 0;
-//        for (int i = 0; i < nums.length; i++) {
-//            if(map.containsKey(nums[i])){
-//                count = map.get(nums[i])+1;
-//                map.put(nums[i],count);
-//            }else {
-//                map.put(nums[i],1);
-//            }
-//        }
-//        count = 0;
-//        for (Integer key : map.keySet()) {
-//            value = map.get(key);
-//            if (count < value){
-//                count = value;
-//                ch = key;
-//            }
-//        }
-//        return ch;
-        int x = 0, votes = 0;
-        for(int num : nums){
-            if(votes == 0) x = num;
-            votes += num == x ? 1 : -1;
+        int temp = nums[0];
+        nums[0] = 1;
+        //摩根投票法
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[0] > 0){
+                if (temp == nums[i]) {
+                    nums[0]++;
+                } else {
+                    nums[0]--;
+                }
+            }else {
+                temp = nums[i];
+                nums[0]++;
+            }
         }
-        return x;
+        return temp;
     }
 }
