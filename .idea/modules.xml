@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/MybatisModel/MybatisModel.iml" filepath="$PROJECT_DIR$/MybatisModel/MybatisModel.iml" />
       <module fileurl="file://$PROJECT_DIR$/ReflectModel/ReflectModel.iml" filepath="$PROJECT_DIR$/ReflectModel/ReflectModel.iml" />
       <module fileurl="file://$PROJECT_DIR$/mianshi/mianshi.iml" filepath="$PROJECT_DIR$/mianshi/mianshi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/usetool/use.iml" filepath="$PROJECT_DIR$/usetool/use.iml" />
     </modules>
   </component>
 </project>

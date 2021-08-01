@@ -143,3 +143,5 @@ i
 9leetcode/src/dpCode/Solution_maxScoreSightseeingPair.java,e\f\ef972e7810dc46ca2325f1054c153903e60019d2
 [
 +leetcode/src/dpCode/Solution_maxProfit.java,c\f\cf49c85cb130a71b35d1c515deabc859ce4f08f3
+\
+,leetcode/src/dpCode/Solution_minPathSum.java,b\9\b976ffeecea15bb17059294ac80c0232bd7648e8

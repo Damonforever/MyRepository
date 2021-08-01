@@ -44,6 +44,7 @@ public class Solution_getIntersectionNode {
             headTwo = headTwo.next;
             if(headOne == headTwo) return headOne;
         }
+        if(headOne == null && headTwo == null) return null;
         if (headTwo == null && headOne != null){
             headTwo = headA;
             while (headOne != null){
