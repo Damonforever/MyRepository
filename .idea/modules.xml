@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/ReflectModel/ReflectModel.iml" filepath="$PROJECT_DIR$/ReflectModel/ReflectModel.iml" />
       <module fileurl="file://$PROJECT_DIR$/mianshi/mianshi.iml" filepath="$PROJECT_DIR$/mianshi/mianshi.iml" />
       <module fileurl="file://$PROJECT_DIR$/usetool/use.iml" filepath="$PROJECT_DIR$/usetool/use.iml" />
-      <module fileurl="file://$PROJECT_DIR$/usetool/usetool.iml" filepath="$PROJECT_DIR$/usetool/usetool.iml" />
     </modules>
   </component>
 </project>
