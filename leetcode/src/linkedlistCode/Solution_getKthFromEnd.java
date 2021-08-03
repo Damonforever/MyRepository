@@ -20,4 +20,16 @@ public class Solution_getKthFromEnd {
 
         return node;
     }
+    public ListNode getKthFromEnd1(ListNode head, int k) {
+        ListNode fast, slow;
+        slow = fast = head;
+        while (k-- > 0){
+            fast = fast.next;
+        }
+        while (fast != null){
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
 }

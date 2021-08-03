@@ -18,4 +18,14 @@ public class Solution_middleNode {
         return slow;
 
     }
+    public ListNode2 middleNode1(ListNode2 head) {
+        ListNode2 fast, slow;
+        slow = fast = head;
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+
+    }
 }

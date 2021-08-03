@@ -1,6 +1,6 @@
 package linkedlistCode;
 
-public class Solutiong_hasCycle {
+public class Solution_hasCycle {
     public boolean hasCycle(ListNode1 head) {
         boolean flag = false;
         ListNode1 fast = head;
@@ -22,5 +22,15 @@ public class Solutiong_hasCycle {
             }
         }
         return flag;
+    }
+    public boolean hasCycle1(ListNode1 head) {
+        ListNode1 fast,slow;
+        fast = slow = head;
+        while (fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if (slow == fast) return true;
+        }
+        return false;
     }
 }
