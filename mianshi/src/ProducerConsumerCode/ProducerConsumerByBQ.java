@@ -2,6 +2,7 @@ package ProducerConsumerCode;
 
 import java.util.Random;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @description: 生产者消费者模式：使用{@link java.util.concurrent.BlockingQueue}实现

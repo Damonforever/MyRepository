@@ -14,4 +14,12 @@ public class Solution_reverseList {
         }
         return head;
     }
+    //纯递归
+    public ListNode3 reverseList1(ListNode3 head) {
+        if (head == null || head.next == null) return head;
+        ListNode3 newHead = reverseList1(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
 }
