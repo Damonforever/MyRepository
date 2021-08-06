@@ -24,17 +24,15 @@ public class Solution_solveNQueens {
         for (int i = 0; i < n; i++) {
             track.add(sb.toString());
         }
-        backtrack(0,track,res);
+        backtrack(0,track,res,n);
         return res;
     }
-    static void backtrack(int row, List<String> track, List<List<String>> res){
+    static void backtrack(int row, List<String> track, List<List<String>> res, int n){
         //递归至最后一行，将其加入结果集
         if (row == track.size()){
             res.add(new LinkedList<>(track));
             return;
         }
-        //获取每行的长度
-        int n = track.get(row).length();
         for (int col = 0; col < n; col++) {
             //选择不合法就排除
             if (!isValid(track,row,col)) continue;
@@ -43,7 +41,7 @@ public class Solution_solveNQueens {
             sb.replace(col,col+1,"Q");
             track.set(row,sb.toString());
             //递归进入下个决策点
-            backtrack(row + 1,track,res);
+            backtrack(row + 1,track,res,n);
             //撤销替换
             sb.replace(col,col+1,".");
             track.set(row,sb.toString());
