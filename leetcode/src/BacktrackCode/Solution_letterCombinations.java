@@ -42,7 +42,7 @@ public class Solution_letterCombinations {
             String str = index.get(chars[i]);
             for (int j = 0; j < str.length(); j++) {
                 sb.append(str.charAt(j));
-                backtrack(chars,n+1,len,sb);
+                backtrack(chars,i+1,len,sb);
                 sb.deleteCharAt(sb.length() - 1);
             }
         }
