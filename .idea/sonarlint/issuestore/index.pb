@@ -29,3 +29,17 @@ c
 3leetcode/src/linkedlistCode/Solution_swapPairs.java,c\6\c68850d39fb592813d92aadcecd27363bbb31766
 g
 7leetcode/src/BacktrackCode/Solution_getMaximumGold.java,9\8\98adcdc3169be3b2be31b9eeda9aa81a391a9e74
+p
+@ReflectModel/src/com/bjpowernode/java/reflect/ReflectTest01.java,b\a\ba17182299eab07e77522ed20483363079c874ef
+f
+6mianshi/src/ProducerConsumerCode/ProducerConsumer.java,1\5\15d53ce6f709caa24df7d2a1af87296bdd8977fe
+l
+<mianshi/src/ProducerConsumerCode/ProducerConsumerByLock.java,3\f\3fc87613786c31f6797e7350e5cf0e9e03071a56
+j
+:mianshi/src/ProducerConsumerCode/ProducerConsumerByBQ.java,6\0\605371bf5785b75db5fba1bd27b90bf97b785f6d
+k
+;leetcode/src/BacktrackCode/Solution_letterCombinations.java,a\f\af3423bf59b6a016a37dda794e4df0517bf69768
+k
+;leetcode/src/greedyCode/Solution_eraseOverlapIntervals.java,d\a\da2d9273b1dd463f3b26bb1758a15f5f7bea9334
+h
+8leetcode/src/greedyCode/Solution_canCompleteCircuit.java,0\0\00afc676194f203cd9e11844944e3f143e682d02
