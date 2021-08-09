@@ -1,23 +1,35 @@
 package arrayCode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
- * @description: 三数之和
+ * @description: 四数之和
  * @author: Damon
- * @date 2021/7/29 10:29
+ * @date 2021/8/9 16:00
  */
-public class Solution_threeSum {
-    public List<List<Integer>> threeSum(int[] nums) {
-        return threeSumTarget(nums,0);
-    }
-    List<List<Integer>> threeSumTarget(int[] nums, int target){
+public class Solution_fourSum {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
         //先排序
         Arrays.sort(nums);
+        List<List<Integer>> result = new ArrayList<>();
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            List<List<Integer>> tuples = threeSumTarget(nums,i + 1,target - nums[i]);
+            for (List<Integer> tuple : tuples) {
+                tuple.add(nums[i]);
+                result.add(tuple);
+            }
+            while (i < n - 1 && nums[i+1] == nums[i]) i++;
+        }
+        return result;
+    }
+    List<List<Integer>> threeSumTarget(int[] nums,int start, int target){
         int n = nums.length;
         List<List<Integer>> result = new ArrayList<>();
         //穷举threeSum的第一个数
-        for (int i = 0; i < n; i++) {
+        for (int i = start; i < n; i++) {
             List<List<Integer>> tuples = twoSumTarget(nums,i + 1,target - nums[i]);
             //存在满足条件的二元组
             for (List<Integer> tuple : tuples) {
