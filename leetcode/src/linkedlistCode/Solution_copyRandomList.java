@@ -5,22 +5,6 @@ import java.util.Map;
 
 public class Solution_copyRandomList {
     public Node copyRandomList(Node head) {
-//        Node prehead = new Node(0);
-//        Node node = head;
-//        prehead.next = node;
-//        if(head == null){
-//            return prehead.next;
-//        }
-//
-//        while (head.next != null){
-//            node.next = head.next;
-//            node.random = head.random;
-//            node = node.next;
-//            head = head.next;
-//        }
-//        node.next = head.next;
-//        node.random = head.random;
-//        return prehead.next;
         if(head == null) return null;
         Node cur = head;
         Map<Node, Node> map = new HashMap<>();
@@ -38,5 +22,38 @@ public class Solution_copyRandomList {
         }
         // 5. 返回新链表的头节点
         return map.get(head);
+    }
+    public Node copyRandomList1(Node head) {
+        if (head == null) return head;
+        Node newHead = new Node(head.val);
+        Node temp = new Node(0), pre = head, cur = head,curHead = newHead;
+        temp.next = newHead;
+        while (pre.next != null){
+            newHead.next = new Node(pre.next.val);
+            pre = pre.next;
+            newHead = newHead.next;
+        }
+        newHead.next = null;
+        while (cur.next != null){
+            if (cur.random == null){
+                curHead.random = null;
+            }else {
+                int value = cur.random.val;
+                Node index = temp.next;
+                while (index.val != value){
+                    index = index.next;
+                }
+                curHead.random = index;
+            }
+            curHead = curHead.next;
+            cur = cur.next;
+        }
+        int value = cur.random.val;
+        Node index = temp.next;
+        while (index.val != value){
+            index = index.next;
+        }
+        curHead.random = index;
+        return temp.next;
     }
 }

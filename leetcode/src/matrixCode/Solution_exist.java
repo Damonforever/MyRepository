@@ -1,47 +1,46 @@
-//package matrixCode;
-//
-//import java.util.*;
-//import java.util.stream.Collectors;
-//
-//public class Solution_exist {
-//    public boolean exist(char[][] board, String word) {
-//        boolean flag = true;
-//        if(word.length() == 0) return false;
-//        int row = board.length;
-//        int col = board[0].length;
-//        int count = 0;
-//        ArrayList<int[]> site = new ArrayList<>();
-//        for (int i = 0; i < row; i++) {
-//            for (int j = 0; j < col; j++) {
-//                if(board[i][j] == word.charAt(0)){
-//                    int[] arr = {i,j};
-//                    site.add(arr);
-//                }
-//            }
-//        }
-//        if(site.size() == 0) return false;
-//        while(site.size() != 0){
-//            int start_row = site.get(0)[0];
-//            int start_col = site.get(0)[1];
-//            judge(start_row,start_col,flag);
-//            if(flag){
-//                break;
-//            }
-//            site.remove(0);
-//        }
-//        return flag;
-//    }
-//    static void judge(int start_row, int start_col,boolean flag){
-//        List<Integer> point = new ArrayList<>();
-//
-//        if(start_row ==0{
-//            if(start_col == 0){
-//                int[] points = {start_row,start_col+1,start_row+1,start_col};
-//                point = Arrays.stream(points).boxed().collect(Collectors.toList());
-//            }else if(){
-//                int[] points = {start_row,start_col+1,start_row+1,start_col,start_row,start_col-1};
-//                point = Arrays.stream(points).boxed().collect(Collectors.toList());
-//            }
-//        }
-//    }
-//}
+package matrixCode;
+/*
+* 矩阵中的路径
+* */
+
+public class Solution_exist {
+    public static void main(String[] args) {
+        System.out.println(new Solution_exist().exist(new char[][]{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}},"ABCCED"));
+    }
+    public boolean exist(char[][] board, String word) {
+        char[] chars = word.toCharArray();
+        int m = board.length;
+        int n = board[0].length;
+        //要查找的串大于已有矩阵大小，必然找不到
+        if (m * n < chars.length) return false;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == chars[0]){
+                    //只有一个字母的串直接返回
+                    if (chars.length == 1) return true;
+                    boolean flag = backtrack(board,chars,i,j,0);
+                    if (flag) return true;
+                }
+            }
+        }
+        return false;
+    }
+    boolean backtrack(char[][] board, char[] chars,int row, int col,int index){
+        //这时说明0 ~ n-1都找到了，直接返回
+        if (index == chars.length) return true;
+        //判断边界
+        if (row < 0 || row >= board.length || col < 0 || col >= board[0].length || board[row][col] == '0')
+            return false;
+        char ch = board[row][col];
+        if (ch == chars[index]){
+            board[row][col] = '0';
+            boolean up = backtrack(board, chars, row - 1, col, index + 1);
+            boolean down = backtrack(board, chars, row + 1, col, index + 1);
+            boolean right = backtrack(board, chars, row, col + 1, index + 1);
+            boolean left = backtrack(board, chars, row, col - 1, index + 1);
+            if (up || down || left || right) return true;
+            board[row][col] = ch;
+        }
+        return false;
+    }
+}
