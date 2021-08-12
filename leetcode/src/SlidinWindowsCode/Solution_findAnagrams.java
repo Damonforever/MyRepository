@@ -1,4 +1,4 @@
-package BinarySearchCode;
+package SlidinWindowsCode;
 
 import java.util.*;
 
