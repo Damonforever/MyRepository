@@ -1,4 +1,4 @@
-package aiqiyi;
+package bishicode.aiqiyi;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

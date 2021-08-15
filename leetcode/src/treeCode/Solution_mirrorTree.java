@@ -36,4 +36,28 @@ public class Solution_mirrorTree {
         }
         return root;
     }
+
+    //复习
+    static TreeNode mirrorTree1(TreeNode root) {
+        if (root != null){
+            if (root.right != null && root.left != null){
+                TreeNode tree = root.left;
+                root.left = root.right;
+                root.right = tree;
+                mirrorTree1(root.left);
+                mirrorTree1(root.right);
+            }else {
+                if (root.left != null){
+                    root.right = root.left;
+                    root.left = null;
+                    mirrorTree1(root.right);
+                }else if (root.right != null){
+                    root.left = root.right;
+                    root.right = null;
+                    mirrorTree1(root.left);
+                }
+            }
+        }
+        return root;
+    }
 }
