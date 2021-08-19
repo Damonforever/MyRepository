@@ -1,4 +1,4 @@
-package dpCode;
+package prefixsum;
 
 /**
  * @description: 二维区域和检索 - 矩阵不可变
