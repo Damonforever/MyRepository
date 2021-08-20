@@ -6,6 +6,9 @@ package dpCode;
  * @date 2021/7/20 16:53
  */
 public class Solution_longestPalindrome {
+    public static void main(String[] args) {
+        System.out.println(new Solution_longestPalindrome().longestPalindrome1("babad"));
+    }
     public String longestPalindrome(String s) {
         int len = s.length();
         if (len < 2) return s;
@@ -47,5 +50,36 @@ public class Solution_longestPalindrome {
             }
         }
         return s.substring(begin, begin + maxLen);
+    }
+
+    //非动态规划
+    public String longestPalindrome1(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            String s1 = palindrome(s,i,i);
+            String s2 = palindrome(s,i,i+1);
+            if (sb.length() < s1.length()) {
+                if (sb.length() > 0){
+                    sb.delete(0,sb.length());
+                }
+                sb.append(s1);
+            }
+            if (sb.length() < s2.length()) {
+                if (sb.length() > 0){
+                    sb.delete(0,sb.length());
+                }
+                sb.append(s2);
+            }
+        }
+        return sb.toString();
+    }
+    String palindrome(String s,int l, int r){
+        //防止索引越界
+        while(l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)){
+            l--;
+            r++;
+        }
+        //不进入while循环操作时，会出现左侧边界大于右侧边界的情况
+        return s.substring(l + 1, r);
     }
 }
