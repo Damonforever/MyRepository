@@ -11,6 +11,24 @@ import java.util.List;
 public class Test02 {
 
     public static void main(String[] args) {
-        Test01 test01 = new Test01();
+//        String s = "hello2";
+//        final String s2 = "hello";
+//        String s5 = "hello";
+//        String s4 = s5+2;
+//        String s3 = s2+2;
+//        System.out.println(s==s3);
+//        System.out.println(s==s4);
+        System.out.println(my());
+    }
+    public static int my(){
+        Integer num = 0;
+        try {
+            num = null;
+            return num;
+        }catch (Exception e){
+            return 1;
+        }finally {
+            return 2;
+        }
     }
 }

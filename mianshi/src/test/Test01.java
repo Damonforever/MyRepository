@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * @description:
  * @author: Damon
@@ -7,11 +10,22 @@ package test;
  */
 public class Test01 {
 
+    static int i=0;
     public Test01(){
 
     }
     public static int num = 5;
-    public static void my(){
+    public void my(){
+        synchronized (this){
+
+        }
         System.out.println("");
+    }
+
+
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+
     }
 }

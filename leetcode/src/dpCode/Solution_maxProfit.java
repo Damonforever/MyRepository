@@ -58,7 +58,7 @@ public class Solution_maxProfit {
 //    }
 
     //单次买卖
-//    public static int maxProfit(int[] prices) {
+//    public static int maxProfit1(int[] prices) {
 //        int m = prices.length;
 //        int temp = 0;
 //        int min = prices[0];
@@ -68,6 +68,8 @@ public class Solution_maxProfit {
 //                min = Math.min(min, prices[i]);
 //            }
 //        }
+//        return temp;
+//    }
 //    //暴力解法
 ////    if(m >= 2){
 ////        for (int j = 0; j < m; j++) {
