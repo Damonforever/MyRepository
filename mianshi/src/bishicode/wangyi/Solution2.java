@@ -27,10 +27,10 @@ public class Solution2 {
         list.add(j);
         list.add(Integer.parseInt(str.substring(pre,str.length())));
         lists.add(list);
-        Collections.sort(lists, new Comparator<List<Integer>>() {
+        lists.sort(new Comparator<List<Integer>>() {
             @Override
             public int compare(List<Integer> o1, List<Integer> o2) {
-                return o1.get(1)- o2.get(1);
+                return o1.get(1) - o2.get(1);
             }
         });
         int[][] flags = new int[lists.size()][2];

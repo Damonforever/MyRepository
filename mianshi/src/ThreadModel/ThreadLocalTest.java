@@ -27,13 +27,11 @@ public class ThreadLocalTest {
         System.out.println(test.getLong());
         System.out.println(test.getString());
 
-        Thread thread1 = new Thread(){
-            public void run() {
-                test.set();
-                System.out.println(test.getLong());
-                System.out.println(test.getString());
-            };
-        };
+        Thread thread1 = new Thread(() -> {
+            test.set();
+            System.out.println(test.getLong());
+            System.out.println(test.getString());
+        });
         thread1.start();
         thread1.join();
 

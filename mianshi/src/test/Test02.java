@@ -1,7 +1,6 @@
 package test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @description:
@@ -11,14 +10,7 @@ import java.util.List;
 public class Test02 {
 
     public static void main(String[] args) {
-//        String s = "hello2";
-//        final String s2 = "hello";
-//        String s5 = "hello";
-//        String s4 = s5+2;
-//        String s3 = s2+2;
-//        System.out.println(s==s3);
-//        System.out.println(s==s4);
-        System.out.println(my());
+        System.out.println(find132pattern(new int[]{-1,3,2,0}));
     }
     public static int my(){
         Integer num = 0;
@@ -30,5 +22,28 @@ public class Test02 {
         }finally {
             return 2;
         }
+    }
+    public static int find132pattern(int[] nums) {
+        int n = nums.length;
+        Deque<Integer> candidateK = new LinkedList<Integer>();
+        candidateK.push(nums[n - 1]);
+        int maxK = Integer.MIN_VALUE;
+        int count = 0;
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] < maxK) {
+                count++;
+                maxK = Integer.MIN_VALUE;
+                candidateK = new LinkedList<>();
+                candidateK.push(nums[i + 1]);
+            }
+            while (!candidateK.isEmpty() && nums[i] > candidateK.peek()) {
+                maxK = candidateK.pop();
+            }
+            if (nums[i] > maxK) {
+                candidateK.push(nums[i]);
+            }
+        }
+
+        return count;
     }
 }
