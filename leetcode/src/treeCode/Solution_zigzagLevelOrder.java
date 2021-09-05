@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @description:
+ * @description: 二叉树的锯齿形层序遍历
  * @author: Damon
  * @date 2021/9/1 21:51
  */
 public class Solution_zigzagLevelOrder {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
+        if(root == null) return result;
         Deque<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         int count = 1;
@@ -32,9 +32,12 @@ public class Solution_zigzagLevelOrder {
                     TreeNode node = queue.pollFirst();
                     temp.add(node.val);
                     if (node.right != null) queue.offerLast(node.right);
+                    if (node.left != null) queue.offerLast(node.left);
                 }
             }
+            result.add(temp);
+            count++;
         }
-        return null;
+        return result;
     }
 }
