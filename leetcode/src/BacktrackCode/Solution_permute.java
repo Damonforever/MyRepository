@@ -1,5 +1,6 @@
 package BacktrackCode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,7 +11,18 @@ import java.util.List;
  */
 public class Solution_permute {
     public static void main(String[] args) {
-        System.out.println(permute(new int[]{1,2,3}));
+        List<List<Integer>> res = permute( new int[]{1,3,5,7,9});
+        int sum = 0;
+        int value;
+        for (int i = 0; i < res.size(); i++) {
+            List<Integer> list = res.get(i);
+             value = 0;
+            for (int j = 0; j < list.size(); j++) {
+                value = value * 10 + list.get(j);
+            }
+            sum += value;
+        }
+        System.out.println(sum);
     }
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new LinkedList<>();
