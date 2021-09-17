@@ -9,7 +9,7 @@ import java.util.Stack;
  */
 public class Solution_calculate {
     public static void main(String[] args) {
-        System.out.println(new Solution_calculate().calculate(""));
+        System.out.println(new Solution_calculate().calculate("1+3-2"));
     }
     public int calculate(String s) {
         int i = 0;
