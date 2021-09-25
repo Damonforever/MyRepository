@@ -7,7 +7,8 @@ package dpCode;
  */
 public class Solution_longestPalindrome {
     public static void main(String[] args) {
-        System.out.println(new Solution_longestPalindrome().longestPalindrome1("babad"));
+//        System.out.println(new Solution_longestPalindrome().longestPalindrome1("babad"));
+        System.out.println(helper("cbb"));
     }
     public String longestPalindrome(String s) {
         int len = s.length();
@@ -81,5 +82,44 @@ public class Solution_longestPalindrome {
         }
         //不进入while循环操作时，会出现左侧边界大于右侧边界的情况
         return s.substring(l + 1, r);
+    }
+
+    //老董思维，左右同时开工
+    public static String helper(String s){
+        if (s.length() == 1) return s;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (i == 0){
+                if (s.charAt(i) == s.charAt(i + 1)){
+                    sb.append(s, i, i+2);
+                }else {
+                    sb.append(s.charAt(i));
+                }
+            }else {
+                int l = i-1, r = i + 1;
+                while (l >= 0 && r <= s.length() - 1 && s.charAt(l) == s.charAt(r)){
+                    l--;
+                    r++;
+                }
+                if (r-l-1 > sb.length()){
+                    sb.delete(0,sb.length());
+                    sb.append(s, l + 1, r);
+                }
+                if (s.charAt(i) == s.charAt(i + 1)){
+                    l = i - 1;
+                    r = i + 2;
+                    while (l >= 0 && r <= s.length() - 1 && s.charAt(l) == s.charAt(r)){
+                        l--;
+                        r++;
+                    }
+                    if (r-l-1 > sb.length()){
+                        sb.delete(0,sb.length());
+                        sb.append(s, l + 1, r);
+                    }
+                }
+            }
+
+        }
+        return sb.toString();
     }
 }
