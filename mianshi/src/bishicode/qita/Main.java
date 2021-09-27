@@ -1,4 +1,4 @@
-package bishicode;
+package bishicode.qita;
 
 import java.util.ArrayList;
 import java.util.HashMap;

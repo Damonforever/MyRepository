@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/MybatisModel/Mybatis-01/pom.xml" />
         <option value="$PROJECT_DIR$/Spring-Damon/pom.xml" />
+        <option value="$PROJECT_DIR$/mianshi/GuavaModel/pom.xml" />
       </list>
     </option>
   </component>
