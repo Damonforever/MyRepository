@@ -1,6 +1,7 @@
 package test;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * @description:
@@ -10,28 +11,47 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine());
-        String[] strings = sc.nextLine().split(" ");
-        int[] nums = new int[strings.length];
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = Integer.parseInt(strings[i]);
-        }
-        int sum = 0;
-        int count = 0;
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
-            count += (i+1);
-            if (sum < count){
-                System.out.println(i + 1);
-                return;
+        String input = sc.nextLine();
+        System.out.println(helper(input,0)[0]);
+    }
+    static int[] helper(String s, int index){
+        Stack<Integer> stack = new Stack<>();
+        int num = 0;
+        char change = '*';
+        char sign = '&';
+        for (; index < s.length(); index++){
+            char ch = s.charAt(index);
+            if (ch == '!') change = ch;
+            if (isDigit(ch)) {
+                num = Integer.parseInt("" + ch);
+                if (change == '!'){
+                    num = ~num;
+                    change = '*';
+                }
             }
+            if (ch == '('){
+                int[] res = helper(s,index + 1);
+                num = res[0];
+                index = res[1];
+            }
+            if ((!isDigit(ch) && ch != '!') || index == s.length() - 1){
+                if (stack.isEmpty()){
+                    stack.push(num);
+                }else {
+                    if (sign == '&'){
+                        stack.push(stack.pop() & num);
+                    }else {
+                        stack.push(stack.pop() | num);
+                    }
+                }
+                sign = ch;
+            }
+            if (ch == ')') break;
         }
-        int len = nums.length + 1;
-        while(sum > count){
-            count += len;
-            len++;
-        }
-        System.out.println(len);
+        return new int[]{stack.pop(),index};
+    }
+    static boolean isDigit(char ch){
+        return ch >= '0' && ch <= '1';
     }
 
 }

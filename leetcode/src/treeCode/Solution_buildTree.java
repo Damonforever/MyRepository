@@ -1,10 +1,7 @@
 package treeCode;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Solution_buildTree {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -36,6 +33,14 @@ public class Solution_buildTree {
     }
 
     public TreeNode helper(int[] inorder, int inStart, int inEnd, int[] postorder, int postStart, int postEnd, Map<Integer, Integer> map){
+        if (postStart > postEnd || inStart > inEnd){
             return null;
+        }
+        TreeNode root = new TreeNode(postorder[postEnd]);
+         int inRoot = map.get(root.val);
+         int numLeft = inRoot - inStart;
+         root.left = helper(inorder, inStart,inRoot - 1,postorder,postStart,postStart + numLeft - 1,map);
+         root.right = helper(inorder, inRoot + 1, inEnd, postorder, postStart + numLeft, postEnd - 1,map);
+         return root;
     }
 }
